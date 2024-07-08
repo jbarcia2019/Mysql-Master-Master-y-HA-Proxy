@@ -2,12 +2,12 @@
 
 ## Nodos
 Servidor MySQL#1 (node1)
-
+- Ubuntu Server 24.04
 - IP : 192.168.159.3
 - Nombre de host : node1
 
 Servidor MySQL#2 (node2)
-
+- Ubuntu Server 24.04
 - IP : 192.168.159.4
 - Nombre de host : node2
 
@@ -51,4 +51,11 @@ Servidor MySQL#2 (node2)
 - SHOW REPLICA STATUS \G
 
 ## Instalación de HA-Proxy en Docker para los dos nodos MySQL
-- Crear haproxy.cfg y desplegar con el docker-compose.yml 
+- Crear haproxy.cfg y desplegar con el docker-compose.yml
+
+## Sincronización de los nodos cuando uno cae
+### Desde terminal
+- sudo mysql -u root -p
+  - FLUSH HOSTS;
+### Desde código en python
+- cursor.execute("FLUSH HOSTS")
